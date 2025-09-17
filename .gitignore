@@ -1,0 +1,21 @@
+# Visual Studio
+.vs/
+*.VC.db
+*.VC.opendb
+*.ipch
+*.sdf
+*.suo
+*.user
+
+# Build outputs
+x64/
+x86/
+bin/
+obj/
+Debug/
+Release/
+
+# CMake (if used)
+CMakeFiles/
+CMakeCache.txt
+cmake-build-*/
