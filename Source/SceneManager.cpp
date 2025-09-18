@@ -385,7 +385,15 @@ void SceneManager::PrepareScene()
 	// loaded in memory no matter how many times it is drawn
 	// in the rendered 3D scene
 
+	m_basicMeshes->LoadBoxMesh();
 	m_basicMeshes->LoadPlaneMesh();
+	m_basicMeshes->LoadCylinderMesh();
+	m_basicMeshes->LoadConeMesh();
+	m_basicMeshes->LoadPrismMesh();
+	m_basicMeshes->LoadPyramid4Mesh();
+	m_basicMeshes->LoadSphereMesh();
+	m_basicMeshes->LoadTaperedCylinderMesh();
+	m_basicMeshes->LoadTorusMesh();
 }
 
 /***********************************************************
@@ -406,6 +414,12 @@ void SceneManager::RenderScene()
 	/*** Set needed transformations before drawing the basic mesh.  ***/
 	/*** This same ordering of code should be used for transforming ***/
 	/*** and drawing all the basic 3D shapes.						***/
+		/****************************************************************/
+	/******************************************************************/
+
+	// plane / floor / ground 
+
+	/******************************************************************/
 	/******************************************************************/
 	// set the XYZ scale for the mesh
 	scaleXYZ = glm::vec3(20.0f, 1.0f, 10.0f);
@@ -431,4 +445,135 @@ void SceneManager::RenderScene()
 	// draw the mesh with transformation values
 	m_basicMeshes->DrawPlaneMesh();
 	/****************************************************************/
+	/******************************************************************/
+
+	// plate / tappered cylinder 
+
+	/******************************************************************/
+	/******************************************************************/
+	// set the XYZ scale for the mesh
+	scaleXYZ = glm::vec3(4.0f, 1.0f, 4.0f);
+
+	// set the XYZ rotation for the mesh
+	XrotationDegrees = 180.0f;
+	YrotationDegrees = 0.0f;
+	ZrotationDegrees = 0.0f;
+
+	// set the XYZ position for the mesh
+	positionXYZ = glm::vec3(-5.0f, 1.0f, 2.0f);
+
+	// set the transformations into memory to be used on the drawn meshes
+	SetTransformations(
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
+
+	SetShaderColor(0.5, 0.5, 0.5, 1);
+
+	// draw the mesh with transformation values
+	m_basicMeshes->DrawTaperedCylinderMesh();
+	/****************************************************************/
+	/******************************************************************/
+
+	// cup / tappered cylinder / torus / plane 
+	// note: note sure how to make hollow cylinder or circler plane
+
+	/******************************************************************/
+	// tappered cylinder
+	/******************************************************************/
+	// set the XYZ scale for the mesh
+	scaleXYZ = glm::vec3(3.0f, 3.0f, 3.0f);
+
+	// set the XYZ rotation for the mesh
+	XrotationDegrees = 180.0f;
+	YrotationDegrees = 0.0f;
+	ZrotationDegrees = 0.0f;
+
+	// set the XYZ position for the mesh
+	positionXYZ = glm::vec3(-5.0f, 4.0f, 2.0f);
+
+	// set the transformations into memory to be used on the drawn meshes
+	SetTransformations(
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
+
+	SetShaderColor(0.6, 0.6, 0.6, 1);
+
+	// draw the mesh with transformation values
+	m_basicMeshes->DrawTaperedCylinderMesh();
+	/****************************************************************/
+	// torus
+	/******************************************************************/
+	// set the XYZ scale for the mesh
+	scaleXYZ = glm::vec3(1.0f, 1.0f, 1.0f);
+
+	// set the XYZ rotation for the mesh
+	XrotationDegrees = 0.0f;
+	YrotationDegrees = 10.0f;
+	ZrotationDegrees = 120.0f;
+
+	// set the XYZ position for the mesh
+	positionXYZ = glm::vec3(-6.5f, 3.0f, 3.75f);
+
+	// set the transformations into memory to be used on the drawn meshes
+	SetTransformations(
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
+
+	SetShaderColor(0.6, 0.6, 0.6, 1);
+
+	// draw the mesh with transformation values
+	m_basicMeshes->DrawHalfTorusMesh();
+	/****************************************************************/
+	// SKIP PLANE till I figure out how to make circular plane
+	// could use a half sphere then scale it down on the Y axis and stretch it on the X and Z. Only works for still camera...
+	/****************************************************************/
+	/******************************************************************/
+
+	// book / box / torus
+
+	/******************************************************************/
+	// Box
+	/******************************************************************/
+	// set the XYZ scale for the mesh
+	scaleXYZ = glm::vec3(6.0f, 0.5f, 11.0f);
+
+	// set the XYZ rotation for the mesh
+	XrotationDegrees = 0.0f;
+	YrotationDegrees = -30.0f;
+	ZrotationDegrees = 0.0f;
+
+	// set the XYZ position for the mesh
+	positionXYZ = glm::vec3(5.5f, 1.0f, 3.0f);
+
+	// set the transformations into memory to be used on the drawn meshes
+	SetTransformations(
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
+
+	SetShaderColor(0.4, 0.4, 0.4, 1);
+
+	// draw the mesh with transformation values
+	m_basicMeshes->DrawBoxMesh();
+	/******************************************************************/
+	// Lots of torus rings 
+	// find the tangent line to the box (-30 degree) and transfer the torus rings to match
+	/******************************************************************/
+	/******************************************************************/
+
+	// pencil / cylinder / cone
+
+	/******************************************************************/
 }
+

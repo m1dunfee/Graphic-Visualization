@@ -54,7 +54,7 @@ ViewManager::ViewManager(
 	m_pWindow = NULL;
 	g_pCamera = new Camera();
 	// default camera view parameters
-	g_pCamera->Position = glm::vec3(0.0f, 5.0f, 12.0f);
+	g_pCamera->Position = glm::vec3(0.0f, 10.0f, 18.0f); //was 0 5 12
 	g_pCamera->Front = glm::vec3(0.0f, -0.5f, -2.0f);
 	g_pCamera->Up = glm::vec3(0.0f, 1.0f, 0.0f);
 	g_pCamera->Zoom = 80;
